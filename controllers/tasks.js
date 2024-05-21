@@ -23,7 +23,7 @@ const getTask = asyncWrapper(async (req, res, next) => {
   res.status(200).json({ task });
 });
 
-const updateTask = asyncWrapper(async (req, res) => {
+const updateTask = asyncWrapper(async (req, res, next) => {
   const { id: taskID } = req.params;
 
   const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
